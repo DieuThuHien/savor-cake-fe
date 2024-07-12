@@ -1,0 +1,25 @@
+.cart-fixed{
+    position: fixed;
+    z-index: 999;
+    bottom: 6rem;
+    left: 1.25rem;
+    background-color: rgb(97, 160, 92);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius:50%;
+    padding: 10px 18px;
+}
+.cart-fixed:hover{
+    background-color: rgb(67, 67, 157);
+}
+.cake-number-in-cart{
+    padding: 6px 10px;
+    font-size: 12px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+    top: -9px;
+    right: -9px;
+}

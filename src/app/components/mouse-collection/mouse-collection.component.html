@@ -1,0 +1,58 @@
+<div class="cold-collection py-8 px-32" id="category">
+  <div class="cold-collection-content flex items-center">
+    <div class="left w-1/2">
+      <div class="imgBox">
+        <img src="../../../assets/images/mousse-collection-cakes (1).png" alt="">
+      </div>
+    </div>
+    <div class="right w-1/2 text-right">
+      <h2>Bộ sưu tập bánh lạnh <br>Mousse</h2>
+      <p>Savor ra mắt bộ sưu tập bánh mousse ngọt mềm, thơm lừng vị hoa quả/cà phê. Bánh sử dụng nguyên liệu xịn xò,
+        100% kem tươi whipping nhập khẩu và hoa quả tươi, phù hợp với những người sành ăn nhất</p>
+    </div>
+  </div>
+  <div class="cake-collection">
+    <h3>Danh mục bánh</h3>
+    <owl-carousel-o [options]="customOptions" class="cake-list flex">
+      <ng-container *ngFor="let cake of cakeList">
+        <ng-template carouselSlide [id]="cake.id">
+          <div class="cake flex flex-col justify-between">
+            <div class="cake-heading">
+              <div class="imgBox">
+                <img [src]="cake.cakeProfileImagePath" [alt]="cake.cakeName">
+              </div>
+              <div class="px-2">
+                <span class="cake-name">{{ cake.cakeName }}</span>
+                <span class="cake-detail">{{ cake.cakeDesc }}</span>
+              </div>
+            </div>
+            <div class="cake-sale px-2">
+              <div>
+                <span [class.line-through]="cake.cakeSalePrice !== '' && cake.cakeSalePrice !== null"
+                [class.font-bold]="cake.cakeSalePrice == null || cake.cakeSalePrice == ''"
+                [class.text-black]="cake.cakeSalePrice == null || cake.cakeSalePrice == ''"
+                class="sale">{{ cake.cakeOriginalPrice }}</span>
+            <span [class.font-bold]="cake.cakeSalePrice !== null" class="ml-2">{{ cake.cakeSalePrice
+                }}</span>
+              </div>
+              <div>
+                <span class="cake-detail">{{ cake.cakeCode }}</span>
+              </div>
+              <div>
+                <span class="cake-detail">Kích thước</span>
+              </div>
+              <div class="cake-size">
+                <div class="cake-size">
+                  <div class="cake-size-item" *ngFor="let size of cake.cakeSize">{{size}}</div>
+              </div>
+              </div>
+              <div class="cake-action flex justify-center">
+                <div class="buy-now" (click)="addToCart2(cake)">Đặt ngay</div>
+                <div class="add-to-cart" (click)="addToCart(cake)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
